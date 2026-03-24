@@ -13,7 +13,7 @@ build:
 	@echo "Building Docker image: $(IMAGE_NAME):$(VERSION)..."
 	docker build -t $(FULL_IMAGE) .
 
-load:ç
+load:
 	@echo "Loading image into Kind..."
 	kind load docker-image $(FULL_IMAGE) --name $(CLUSTER)
 
@@ -23,7 +23,15 @@ apply:
 	# This sed command finds the 'image:' line and replaces it with our new tag
 	sed -i 's|image: $(IMAGE_NAME):.*|image: $(FULL_IMAGE)|' k8s/01-deployment.yaml
 	kubectl apply -f k8s/01-deployment.yaml
-	kubectl rollout restart deployment/grpc-user-service
+	kubectl rollout restart deployment grpc-user-service -n go-grpc
+
+applyall:
+	@echo "Applying Kubernetes manifests..."
+	@echo "Updating manifest with tag $(VERSION)..."
+	# This sed command finds the 'image:' line and replaces it with our new tag
+	sed -i 's|image: $(IMAGE_NAME):.*|image: $(FULL_IMAGE)|' k8s/01-deployment.yaml
+	kubectl apply -f k8s/
+	kubectl rollout restart deployment grpc-user-service -n go-grpc
 
 generate:
 	@echo "Generating Protobuf code..."
