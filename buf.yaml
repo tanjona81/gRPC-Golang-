@@ -1,0 +1,7 @@
+version: v1
+name: github.com/tanjona81/go-grpc
+reporting:
+  enum_zero_value_presence: error
+lint:
+  use:
+    - DEFAULT

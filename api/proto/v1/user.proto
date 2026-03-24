@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package v1;
+
+// This option defines where the generated Go code will live 
+// and what its internal package name will be.
+option go_package = "github.com/tanjona81/go-grpc/gen/go/v1;userv1";
+
+service UserService {
+  // A simple RPC to fetch a user by ID
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message GetUserResponse {
+  string id = 2;
+  string email = 3;
+  string full_name = 4;
+}
