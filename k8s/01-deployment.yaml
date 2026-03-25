@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: grpc-server
-        image: grpc-server:429c8f7
+        image: grpc-server:36a7319
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 50051
