@@ -28,7 +28,10 @@ func (s *Server) GetUser(ctx context.Context, req *userv1.GetUserRequest) (*user
 		if ctx.Err() == context.DeadlineExceeded {
 			return nil, status.Error(codes.DeadlineExceeded, "database took too long")
 		}
-		return nil, status.Error(codes.Internal, "failed to fetch user")
+		st, _ := status.FromError(err)
+		if st.Code() != codes.InvalidArgument && st.Code() != codes.NotFound {
+			return nil, status.Error(codes.Internal, "failed to fetch user")
+		}
 	}
 
 	return &userv1.GetUserResponse{
