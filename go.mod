@@ -1,4 +1,4 @@
-module github.com/tanjona81/go-grpc
+module github.com/tanjona81/gRPC-Golang-
 
 go 1.25.0
 

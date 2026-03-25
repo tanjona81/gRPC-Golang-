@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/recovery"
-	userv1 "github.com/tanjona81/go-grpc/gen/go"
-	"github.com/tanjona81/go-grpc/internal/service"
-	internalgrpc "github.com/tanjona81/go-grpc/internal/transport/grpc"
+	userv1 "github.com/tanjona81/gRPC-Golang-/gen/go"
+	"github.com/tanjona81/gRPC-Golang-/internal/service"
+	internalgrpc "github.com/tanjona81/gRPC-Golang-/internal/transport/grpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"

@@ -4,9 +4,12 @@ VERSION    := $(shell git rev-parse --short HEAD)
 CLUSTER    := dev-cluster
 FULL_IMAGE = $(IMAGE_NAME):$(VERSION)
 
-.PHONY: all deploy build load apply generate run
+.PHONY: all deploy build load applyall generate run
 
 deploy: build load apply
+	@echo "Deployment complete!"
+
+deployall: build load applyall
 	@echo "Deployment complete!"
 
 build:

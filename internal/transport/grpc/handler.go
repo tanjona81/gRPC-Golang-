@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	userv1 "github.com/tanjona81/go-grpc/gen/go"
-	"github.com/tanjona81/go-grpc/internal/service"
+	userv1 "github.com/tanjona81/gRPC-Golang-/gen/go"
+	"github.com/tanjona81/gRPC-Golang-/internal/service"
 )
 
 type Server struct {
